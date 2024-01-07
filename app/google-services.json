@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "573000487990",
+    "project_id": "umerapp-52eb0",
+    "storage_bucket": "umerapp-52eb0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573000487990:android:e2c0613f329bcdfaf93497",
+        "android_client_info": {
+          "package_name": "com.shubham.umerapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJZXxighZajfjsZg88ppNCv1pveOyBq0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

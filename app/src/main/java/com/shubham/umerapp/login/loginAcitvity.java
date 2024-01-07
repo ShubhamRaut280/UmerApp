@@ -143,7 +143,10 @@ public class loginAcitvity extends AppCompatActivity {
                             FirebaseUser user = task.getResult().getUser();
 
                             // Update UI
-                            startActivity(new Intent(loginAcitvity.this, MainActivity.class));
+                            Intent intent = new Intent(loginAcitvity.this, AddProfileInfo.class);
+                            intent.putExtra("contactNo", user.getPhoneNumber());
+                            startActivity(intent);
+
                         } else {
                             // Sign in failed, display a message and update the UI
                             Toast.makeText(loginAcitvity.this, "Sign in Failed ! please try again.", Toast.LENGTH_SHORT).show();
@@ -170,7 +173,9 @@ public class loginAcitvity extends AppCompatActivity {
 
         if (currentuser != null)
         {
-            startActivity(new Intent(loginAcitvity.this, MainActivity.class));
+            Intent intent = new Intent(loginAcitvity.this, AddProfileInfo.class);
+            intent.putExtra("contactNo", currentuser.getPhoneNumber());
+            startActivity(intent);
             finish();
         }
     }

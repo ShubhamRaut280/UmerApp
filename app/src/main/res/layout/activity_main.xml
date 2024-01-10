@@ -6,13 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
 
+        <TextView
+            android:id="@+id/hii"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:layout_margin="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:fontFamily="@font/loraitalic"
+            android:textColor="@color/main"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:text="Hii" />
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

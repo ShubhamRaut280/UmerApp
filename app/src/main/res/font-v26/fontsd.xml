@@ -10,8 +10,8 @@
     <font android:font="@font/lora"
         android:fontWeight="400"
         android:fontStyle="normal"/>
-
+    
     <font android:font="@font/loraitalic"
-        android:fontWeight="1000"
+        android:fontWeight="500"
         android:fontStyle="italic"/>
     </font-family>

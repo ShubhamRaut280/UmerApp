@@ -8,7 +8,7 @@
             android:font="@font/popins" />
 
     <font android:font="@font/lora"
-        android:fontWeight="400"
+        android:fontWeight="800"
         android:fontStyle="normal"/>
 
     <font android:font="@font/loraitalic"

@@ -2,6 +2,7 @@ package com.shubham.umerapp;
 
 import static android.content.ContentValues.TAG;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActionBar titlebar = getSupportActionBar();
+        titlebar.show();
         setContentView(R.layout.activity_main);
         hii = findViewById(R.id.hii);
         db = FirebaseFirestore.getInstance();
@@ -41,12 +44,17 @@ public class MainActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             documentId = document.getId().toString();
+                            db.collection("users").document(documentId).get().addOnCompleteListener(task1 ->
+                            {
+                                DocumentSnapshot documentSnapshot = task1.getResult();
+                                titlebar.setTitle("Hii, "+documentSnapshot.getString("Name"));
+                            });
                         }
                     }
                 }).addOnFailureListener(e->{
                     Toast.makeText(this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
                     Log.d(TAG, "error in fetching the document : "+e);
-                }).;
+                });
 
 
 

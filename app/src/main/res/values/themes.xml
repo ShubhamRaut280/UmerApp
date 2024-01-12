@@ -13,4 +13,13 @@
         <item name="android:statusBarColor">@color/main</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.UmerApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.UmerApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.UmerApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

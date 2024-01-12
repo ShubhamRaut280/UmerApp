@@ -3,4 +3,13 @@
     <string name="default_web_client_id">270785556603-cevk2ncqoptumf4s2m01u0kqi1tdftke.apps.googleusercontent.com</string>
     <string name="continue_to_diary">Welcome !! Continue to Diary</string>
     <string name="welcome">Continue in using your phone number</string>
+    <string name="receive_feedback_for_morning">Receive feedback for morning</string>
+    <string name="receive_feedback_for_evening">Receive feedback for evening</string>
+    <string name="view_all_users">View all users</string>
+    <string name="current_date_and_time">Current date and time</string>
+    <string name="todo">TODO</string>
+    <string name="send_message">Send message</string>
+    <string name="admin_s_dashboard">Admin\'s Dashboard</string>
+    <string name="view_last_summary">View last summary</string>
+    <string name="user_dashboard">User Dashboard</string>
 </resources>

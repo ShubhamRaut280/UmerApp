@@ -4,31 +4,57 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.shubham.umerapp.R;
-import com.shubham.umerapp.databinding.ActivityMainBinding;
-import com.shubham.umerapp.login.AddProfileInfo;
+
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class AdminHomeScreen extends AppCompatActivity {
 
-ActivityMainBinding binding;
 ActionBar actionBar;
+CardView viewTotaluser;
+
+TextView currentDateTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_screen);
+        setContentView(R.layout.admin_home_activity);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        viewTotaluser = findViewById(R.id.totalusers);
+        currentDateTime = findViewById(R.id.currentDateAndTime);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        currentDateTime.setText(getCurrentDate());
+
+
+        viewTotaluser.setOnClickListener(view ->
+        {
+            startActivity(new Intent(AdminHomeScreen.this , AllusersActivity.class));
+        });
+
+
+
+    }
+
+    public String getCurrentDate()
+    {
+        Date currentDate = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("EEEE, d - MMM", Locale.getDefault());
+        String formattedDateTime = sdf.format(currentDate);
+        return  formattedDateTime;
     }
 
     @Override

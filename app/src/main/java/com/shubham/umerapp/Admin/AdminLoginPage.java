@@ -22,9 +22,7 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.shubham.umerapp.MainActivity;
 import com.shubham.umerapp.R;
-import com.shubham.umerapp.login.loginAcitvity;
 
 public class AdminLoginPage extends AppCompatActivity {
 

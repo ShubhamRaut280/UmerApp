@@ -2,7 +2,6 @@ package com.shubham.umerapp.login;
 
 import static android.content.ContentValues.TAG;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -11,10 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -22,25 +18,15 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.auth.PhoneAuthCredential;
-import com.google.firebase.auth.PhoneAuthOptions;
-import com.google.firebase.auth.PhoneAuthProvider;
-import com.google.firebase.database.FirebaseDatabase;
 import com.shubham.umerapp.Admin.AdminHomeScreen;
 import com.shubham.umerapp.Admin.AdminLoginPage;
-import com.shubham.umerapp.MainActivity;
+import com.shubham.umerapp.User.userHomeAcitvity;
 import com.shubham.umerapp.R;
-
-import java.util.concurrent.TimeUnit;
 
 public class loginAcitvity extends AppCompatActivity {
 
@@ -110,25 +96,22 @@ public class loginAcitvity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        if (FirebaseAuth.getInstance().getCurrentUser().getEmail().toString().equals("rautshubham368@gmail.com"))
-        {
-            isAdmin = true;
-        }
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        // Assume you have a variable isAdmin indicating the user's role
-        if (!isAdmin) {
-            FirebaseUser currentuser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            if (currentUser.getEmail() != null && currentUser.getEmail().equals("rautshubham368@gmail.com")) {
+                isAdmin = true;
+            }
 
-            if (currentuser != null)
-            {
-                Intent intent = new Intent(loginAcitvity.this, MainActivity.class);
+            // Assume you have a variable isAdmin indicating the user's role
+            if (!isAdmin) {
+                Intent intent = new Intent(loginAcitvity.this, userHomeAcitvity.class);
                 startActivity(intent);
                 finish();
-            }        }
-        else
-        {
-            startActivity(new Intent(loginAcitvity.this , AdminHomeScreen.class));
-            finish();
+            } else {
+                startActivity(new Intent(loginAcitvity.this, AdminHomeScreen.class));
+                finish();
+            }
         }
     }
 
@@ -172,7 +155,7 @@ public class loginAcitvity extends AppCompatActivity {
                                     +" user : "+ user.getPhoneNumber());
                             Toast.makeText(loginAcitvity.this, "sign in successful", Toast.LENGTH_SHORT).show();
                             // Update UI
-                            Intent intent = new Intent(loginAcitvity.this, MainActivity.class);
+                            Intent intent = new Intent(loginAcitvity.this, userHomeAcitvity.class);
                             startActivity(intent);
 
                         }

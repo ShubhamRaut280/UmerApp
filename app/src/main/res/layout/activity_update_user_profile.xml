@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin.updateAdminProfile">
-
+    tools:context=".User.updateUserProfile">
     <ProgressBar
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:id="@+id/progress_bar_inadminProfile"
+        android:id="@+id/progressBarofUserProfile"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,12 +24,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-<ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:id="@+id/backtodashboardadmin"
-    android:src="@drawable/back"
-    />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/backtodashboarduser"
+            android:src="@drawable/back"
+            />
         <TextView
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
@@ -44,7 +43,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <RelativeLayout
-        android:id="@+id/relativeLayout"
+        android:id="@+id/relativeLayoutinUserProfileUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="invisible"
@@ -54,7 +53,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageView
-            android:id="@+id/adminProfileDp"
+            android:id="@+id/userProfileDp"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_alignParentTop="true"
@@ -68,7 +67,7 @@
             android:id="@+id/nameText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/adminProfileDp"
+            android:layout_below="@id/userProfileDp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="40dp"
@@ -78,7 +77,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/adminUsername"
+            android:id="@+id/userUsername"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_below="@id/nameText"
@@ -95,7 +94,7 @@
             android:id="@+id/contacttext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/adminUsername"
+            android:layout_below="@id/userUsername"
             android:layout_marginStart="40dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="40dp"
@@ -107,7 +106,7 @@
             />
 
         <EditText
-            android:id="@+id/adminPhoneNumber"
+            android:id="@+id/userPhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_below="@id/contacttext"
@@ -126,7 +125,7 @@
             android:id="@+id/emailText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/adminPhoneNumber"
+            android:layout_below="@id/userPhoneNumber"
             android:layout_marginStart="40dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="40dp"
@@ -138,7 +137,7 @@
             />
 
         <TextView
-            android:id="@+id/adminEmail"
+            android:id="@+id/userEmail"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_below="@id/emailText"
@@ -152,10 +151,10 @@
             android:textSize="18dp" />
 
         <Button
-            android:id="@+id/updateAdminDetails"
+            android:id="@+id/updateUserDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/adminEmail"
+            android:layout_below="@id/userEmail"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:background="@drawable/round_corners_for_buttons"

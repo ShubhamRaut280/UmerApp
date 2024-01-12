@@ -1,4 +1,4 @@
-package com.shubham.umerapp;
+package com.shubham.umerapp.User;
 
 public class userDetails {
     String name, phone, email;

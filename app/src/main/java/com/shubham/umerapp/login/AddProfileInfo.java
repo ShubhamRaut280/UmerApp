@@ -3,7 +3,6 @@
     import static android.content.ContentValues.TAG;
     import androidx.appcompat.app.AppCompatActivity;
 
-    import android.content.Intent;
     import android.os.Bundle;
     import android.util.Log;
     import android.widget.Button;
@@ -13,7 +12,6 @@
     import com.google.firebase.auth.FirebaseAuth;
     import com.google.firebase.firestore.FirebaseFirestore;
     import com.google.firebase.firestore.QueryDocumentSnapshot;
-    import com.shubham.umerapp.MainActivity;
     import com.shubham.umerapp.R;
 
     import java.util.HashMap;

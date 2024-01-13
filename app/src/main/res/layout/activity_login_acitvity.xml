@@ -24,136 +24,54 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="100dp"
             android:layout_centerHorizontal="true"
-            android:fontFamily="@font/popins"
+            android:fontFamily="@font/loraitalic"
             android:text="Welcome !! Continue to app"
             android:textAlignment="center"
             android:textColor="@color/main2"
             android:textSize="28sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/welcome"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="30dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
+
+
+        <ImageView
+            android:id="@+id/googleLogin"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="50dp"
+            android:clickable="true"
+            android:layout_centerHorizontal="true"
             android:layout_below="@id/appname"
-            android:fontFamily="@font/popins"
-            android:text="Login with phone number"
-            android:textAlignment="center"
-            android:textColor="@color/grey"
-            android:textSize="18dp" />
+                android:src="@drawable/google"
+                />
 
-
-
-
-        <TextView
-            android:id="@+id/mobileText"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/GotoAdminLogin"
+            android:layout_below="@id/googleLogin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_below="@id/welcome"
-            android:fontFamily="@font/popins"
-            android:text="Enter Mobile Number"
-            android:paddingStart="20dp"
-            android:textColor="@color/main2"
-            android:textSize="20dp" />
+            android:layout_height="40dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:backgroundTint="@color/main2"
+            android:layout_marginTop="100dp" >
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Login as a Admin"
+                android:fontFamily="@font/lora"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:layout_gravity="center"
 
-        <EditText
-            android:id="@+id/inputMobileno"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@id/mobileText"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="58dp"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/curvecorner"
-            android:layout_marginEnd="58dp"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            android:ems="10"
-            android:inputType="number"
-            android:textColor="@color/black"
-            android:textSize="16dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-
-        <Button
-            android:id="@+id/getotp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/inputMobileno"
-            android:background="@drawable/curvecorner"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/popins"
-            android:textSize="17dp"
-            android:textAllCaps="true"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:layout_marginEnd="75dp"
-            android:layout_alignParentEnd="true"
-            android:text="Get OTP" />
-
-        <TextView
-            android:id="@+id/Otptext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_below="@id/getotp"
-            android:fontFamily="@font/popins"
-            android:visibility="gone"
-            android:text="Enter OTP"
-            android:paddingStart="20dp"
-            android:textColor="@color/main2"
-            android:textSize="20dp" />
-
-
-        <EditText
-            android:id="@+id/inputOTP"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@id/Otptext"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="58dp"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/curvecorner"
-            android:layout_marginEnd="58dp"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            android:visibility="gone"
-            android:ems="10"
-            android:inputType="number"
-            android:textColor="@color/black"
-            android:textSize="16dp"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-
-        <Button
-            android:id="@+id/submitOTP"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/inputOTP"
-            android:background="@drawable/curvecorner"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/popins"
-            android:textSize="17dp"
-            android:textAllCaps="true"
-            android:visibility="gone"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:layout_marginEnd="75dp"
-            android:layout_alignParentEnd="true"
-            android:text="Submit OTP" />
-
+                />
+        </androidx.cardview.widget.CardView>
 
 
     </RelativeLayout>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin.AdminHomeScreen">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/main2"
+        app:menu="@menu/admin_homepage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/popins"
+
+            android:text="@string/admin_s_dashboard"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        tools:layout_editor_absoluteX="54dp"
+        tools:layout_editor_absoluteY="-137dp">
+
+
+        <TextView
+            android:id="@+id/currentDateAndTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/lora"
+            android:paddingStart="20dp"
+            android:text="@string/current_date_and_time"
+            android:textColor="@color/main"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/currentDateAndTime"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp"
+            android:id="@+id/morningcard"
+            android:elevation="10dp"
+            app:cardCornerRadius="20dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/morningtext"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:fontFamily="@font/popins"
+                    android:text="@string/receive_feedback_for_morning"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+
+                    />
+
+                <Button
+                    android:id="@+id/viewLastSummaryMorining"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/morningtext"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/round_corners_for_buttons"
+                    android:fontFamily="@font/popins"
+                    android:text="View last summary"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,TextContrastCheck,TouchTargetSizeCheck" />
+
+                <Button
+                    android:id="@+id/sendMessageMorining"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/morningtext"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_toEndOf="@id/viewLastSummaryMorining"
+                    android:background="@drawable/round_corners_for_buttons"
+                    android:fontFamily="@font/popins"
+                    android:text="Send message"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    tools:ignore="DuplicateSpeakableTextCheck,HardcodedText,TouchTargetSizeCheck,TextContrastCheck" />
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/morningcard"
+            android:id="@+id/eveningcard"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="20dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/eveningtext"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:fontFamily="@font/popins"
+                    android:text="@string/receive_feedback_for_evening"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+
+                    />
+
+                <Button
+                    android:id="@+id/viewLastSummaryEvening"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/eveningtext"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/round_corners_for_buttons"
+                    android:fontFamily="@font/popins"
+                    android:text="@string/view_last_summary"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+                <Button
+                    android:id="@+id/sendMessageEvening"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/eveningtext"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_toEndOf="@id/viewLastSummaryEvening"
+                    android:background="@drawable/round_corners_for_buttons"
+                    android:fontFamily="@font/popins"
+                    android:text="@string/send_message"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/eveningcard"
+            android:clickable="true"
+            android:id="@+id/totalusers"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="20dp"
+            tools:ignore="KeyboardInaccessibleWidget">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <TextView
+                    android:id="@+id/AllUsers"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/popins"
+                    android:gravity="center"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="20dp"
+                    android:text="@string/view_all_users"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+
+                    tools:ignore="TextSizeCheck" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_toEndOf="@id/AllUsers"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginBottom="248dp"
+
+                    android:layout_alignParentEnd="true"
+                    app:srcCompat="@drawable/baseline_keyboard_arrow_right_24"
+                    android:contentDescription="@string/todo" />
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

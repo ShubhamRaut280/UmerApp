@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    tools:context=".User.Fragments.fragment1">
+
+
+        <TextView
+            android:id="@+id/hii"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/loraitalic"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="Hiui"
+            android:textColor="@color/main"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/yes"
+            android:layout_width="162dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/hii"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="94dp"
+            android:layout_marginEnd="117dp"
+            android:layout_marginBottom="100dp"
+            android:text="Yes" />
+
+        <Button
+            android:id="@+id/no"
+            android:layout_width="162dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/hii"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="153dp"
+            android:layout_marginEnd="115dp"
+            android:layout_marginBottom="100dp"
+            android:text="No" />
+
+        <ProgressBar
+            android:id="@+id/feedbackProgressbar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="277dp"
+            android:layout_marginEnd="184dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+</RelativeLayout>

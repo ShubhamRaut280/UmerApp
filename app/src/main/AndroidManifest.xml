@@ -30,6 +30,16 @@
             android:name=".Admin.AdminHomeScreen"
             android:exported="false" />
         <activity
+            android:name=".SplashScreen"
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".login.AddProfileInfo"
             android:exported="false" />
         <activity
@@ -37,12 +47,7 @@
             android:exported="false" />
         <activity
             android:name=".login.loginAcitvity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

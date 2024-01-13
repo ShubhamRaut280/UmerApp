@@ -51,5 +51,25 @@
             android:textColor="@color/main"
             android:textSize="25sp"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/sendFeedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="100dp"
+            android:text="send feedback" />
+
+        <ProgressBar
+            android:id="@+id/feedbackProgressbar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="277dp"
+            android:layout_marginEnd="184dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,9 +11,10 @@
         android:id="@+id/chip"
         android:layout_width="386dp"
         android:layout_height="405dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="32dp"
         app:chipSurfaceColor="#DDBAEFB6"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,8 +30,8 @@
         android:foregroundGravity="bottom"
         android:gravity="center"
         android:requiresFadingEdge="none"
-        android:text="TextView"
-        android:textSize="48sp"
+        android:text="Fetching Month..."
+        android:textSize="16sp"
         android:textStyle="bold"
         app:autoSizeTextType="none"
         app:layout_constraintBottom_toBottomOf="@+id/chip"
@@ -44,10 +45,11 @@
         android:layout_width="320dp"
         android:layout_height="303dp"
         android:gravity="center"
-        android:text="TextView"
-        android:textSize="96sp"
+        android:text="Fetching Date..."
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/chip"
         app:layout_constraintEnd_toEndOf="@+id/chip"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="@+id/chip"
         app:layout_constraintTop_toBottomOf="@+id/txtmonth"
         app:layout_constraintVertical_bias="1.0" />
@@ -97,13 +99,14 @@
         android:id="@+id/textView4"
         android:layout_width="141dp"
         android:layout_height="41dp"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="44dp"
         android:gravity="center"
         android:text="Evening supply: "
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/chip3"
         app:layout_constraintStart_toStartOf="@+id/chip3"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        app:layout_constraintVertical_bias="0.025" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,8 +9,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.apache.commons.net.time.TimeTCPClient;
+
+import java.io.IOException;
+import java.util.concurrent.Executors;
+
 public class fragment2 extends Fragment {
     TextView day,month;
+    public String rawDate;
+    String s_year, s_month, s_day, s_hour, s_min;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -20,21 +28,45 @@ public class fragment2 extends Fragment {
         day = view.findViewById(R.id.txtday);
         month = view.findViewById(R.id.txtmonth);
 
-        Bundle args = getArguments();
-        if (args != null) {
-            String Year = args.getString("Year");
-            String Month = args.getString("Month");
-            String Day = args.getString("Day");
-            String Hour = args.getString("Hour");
-            String Min = args.getString("Min");
+        // Fetching date from internet and updating UI
+        Executors.newSingleThreadExecutor().execute(() -> {
+            // todo: background tasks
 
-            day.setText(Day);
-            month.setText(Month);
-        }else{
-            day.setText("Unable to get Date");
-            month.setText("Unable to get Month");
-        }
+            TimeTCPClient timeTCPClient = new TimeTCPClient();
+
+            try{
+                timeTCPClient.connect("time.nist.gov");
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+
+            try{
+                rawDate = timeTCPClient.getDate().toString();
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+
+            requireActivity().runOnUiThread((Runnable) () -> {
+                // todo: update your ui / view in Fragment
+
+                s_year = rawDate.substring(30, 34);
+                s_month = rawDate.substring(4,7);
+                s_day = rawDate.substring(8,10);
+                s_hour = rawDate.substring(11,13);
+                s_min = rawDate.substring(14,16);
+                day.setText(s_day);
+                month.setText(s_month);
+                day.setTextSize(96);
+                month.setTextSize(48);
+            });
+
+        });
+
+
 
         return view;
+
+
+
     }
 }

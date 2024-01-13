@@ -3,12 +3,14 @@ package com.shubham.umerapp;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,16 +22,16 @@ public class fragment3 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_fragment3, container, false);
 
 
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        List<String> dataList = Arrays.asList("Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 6", "Item 6", "Item 6", "Item 6",
-                "Item 6", "Item 6", "Item 6", "Item 6", "Item 6", "Item 6", "Item 6", "Item 6", "Item 6", "Item 6", "Item 6", "Item 6", "Item 6",
-                "Item 6", "Item 6", "Item 6", "Item 6", "Item 6", "Item 6");
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
 
-        GridAdapter gridAdapter = new GridAdapter(getContext(), dataList);
-        recyclerView.setAdapter(gridAdapter);
+        List<Item> items = new ArrayList<Item>();
+        items.add(new Item(R.drawable.user));
+        items.add(new Item(R.drawable.user));
+
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(new MyAdapter(getContext(),items));
 
         return view;
     }
-
-
 }

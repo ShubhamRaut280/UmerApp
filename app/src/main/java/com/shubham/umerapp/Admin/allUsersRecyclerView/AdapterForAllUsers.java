@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.shubham.umerapp.R;
-import com.shubham.umerapp.User.userDetails;
+import com.shubham.umerapp.Models.userDetails;
 
 import java.util.ArrayList;
 

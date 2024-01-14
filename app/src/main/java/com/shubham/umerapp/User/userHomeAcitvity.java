@@ -6,14 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.helper.widget.MotionEffect;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -21,7 +19,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.shubham.umerapp.R;
 import com.shubham.umerapp.databinding.UserHomeActivityBinding;
-import com.shubham.umerapp.helperFunctions;
+import com.shubham.umerapp.Utils.helperFunctions;
+import com.shubham.umerapp.login.loginActivity;
+import com.shubham.umerapp.Models.userDetails;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -76,7 +76,7 @@ public class userHomeAcitvity extends AppCompatActivity {
                 });
 
 
-        binding.sendFeedback.setOnClickListener(view -> {
+        binding.sendFeedbackMorning.setOnClickListener(view -> {
 
             String userEmail = auth.getCurrentUser().getEmail();
 
@@ -100,6 +100,7 @@ public class userHomeAcitvity extends AppCompatActivity {
                                         .addOnSuccessListener(aVoid -> {
                                             Log.d(MotionEffect.TAG, "Feedback sent successfully!");
                                             Toast.makeText(getApplicationContext(), "Feedback sent successfully!", Toast.LENGTH_SHORT).show();
+                                            binding.sendFeedbackMorning.setVisibility(View.INVISIBLE);
                                             binding.feedbackProgressbar.setVisibility(View.GONE);
 
                                         })
@@ -109,6 +110,7 @@ public class userHomeAcitvity extends AppCompatActivity {
                                                     .addOnSuccessListener(aVoid1 -> {
                                                         binding.feedbackProgressbar.setVisibility(View.GONE);
                                                         Toast.makeText(getApplicationContext(), "Feedback added successfully!", Toast.LENGTH_SHORT).show();
+                                                        binding.sendFeedbackMorning.setVisibility(View.INVISIBLE);
                                                         Log.d(MotionEffect.TAG, "Feedback added successfully!");
                                                     })
                                                     .addOnFailureListener(e1 -> {
@@ -134,6 +136,65 @@ public class userHomeAcitvity extends AppCompatActivity {
 
         });
 
+        binding.sendFeedbackEvening.setOnClickListener(view -> {
+
+            String userEmail = auth.getCurrentUser().getEmail();
+
+            Map<String , Object> feedback = new HashMap<>();
+            feedback.put(funcs.getCurrentDate(), true);
+
+
+            binding.feedbackProgressbar.setVisibility(View.VISIBLE);
+
+            // getting document id of user from email
+            db.collection("users")
+                    .whereEqualTo("Email", userEmail)
+                    .get()
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful() && !task.getResult().isEmpty()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                String documentId = document.getId();
+
+                                // checking if the document id is present in collection
+                                db.collection("eveningSession").document(documentId).update(feedback)
+                                        .addOnSuccessListener(aVoid -> {
+                                            Log.d(MotionEffect.TAG, "Feedback sent successfully!");
+                                            Toast.makeText(getApplicationContext(), "Feedback sent successfully!", Toast.LENGTH_SHORT).show();
+                                            binding.sendFeedbackEvening.setVisibility(View.INVISIBLE);
+                                            binding.feedbackProgressbar.setVisibility(View.GONE);
+
+                                        })
+                                        .addOnFailureListener(e -> {
+                                            // If the document doesn't exist, create a new one
+                                            db.collection("eveningSession").document(documentId).set(feedback)
+                                                    .addOnSuccessListener(aVoid1 -> {
+                                                        binding.feedbackProgressbar.setVisibility(View.GONE);
+                                                        Toast.makeText(getApplicationContext(), "Feedback added successfully!", Toast.LENGTH_SHORT).show();
+                                                        Log.d(MotionEffect.TAG, "Feedback added successfully!");
+                                                        binding.sendFeedbackEvening.setVisibility(View.INVISIBLE);
+                                                    })
+                                                    .addOnFailureListener(e1 -> {
+                                                        binding.feedbackProgressbar.setVisibility(View.GONE);
+                                                        Toast.makeText(getApplicationContext(), "Something went wrong!!", Toast.LENGTH_SHORT).show();
+                                                        Log.d(MotionEffect.TAG, "Error in creating database : " + e1.getMessage());
+                                                    });
+                                        });
+
+                            }
+                        }
+                        else
+                        {
+                            //  user database does not exist can be created using updating profile
+                            Toast.makeText(getApplicationContext(), "Update your profile first..", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }).addOnFailureListener(e -> {
+                        Toast.makeText(getApplicationContext(), "Something went wrong!! Error : " + e.getMessage(), Toast.LENGTH_SHORT).show();
+
+
+                    });
+
+        });
 
     }
     
@@ -152,6 +213,12 @@ public class userHomeAcitvity extends AppCompatActivity {
         if(id == R.id.gotoUpdateUserprofile)
         {
             startActivity(new Intent(userHomeAcitvity.this, updateUserProfile.class));
+            return true;
+        } else if(id==R.id.logoutasUser)
+        {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(userHomeAcitvity.this, loginActivity.class));
+            finish();
             return true;
         }
 

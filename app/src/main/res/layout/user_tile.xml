@@ -22,7 +22,7 @@
             />
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="22dp"
             android:textSize="16sp"
             android:text="Users Name"
             android:layout_toEndOf="@id/userProfileImage"

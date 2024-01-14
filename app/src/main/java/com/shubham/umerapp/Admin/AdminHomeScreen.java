@@ -5,16 +5,15 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-
+import com.google.firebase.auth.FirebaseAuth;
+import com.shubham.umerapp.login.loginActivity;
 import com.shubham.umerapp.R;
-
-
+import com.shubham.umerapp.databinding.AdminHomeActivityBinding;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -23,28 +22,30 @@ public class AdminHomeScreen extends AppCompatActivity {
 
 ActionBar actionBar;
 CardView viewTotaluser;
+AdminHomeActivityBinding binding;
 
 TextView currentDateTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.admin_home_activity);
-
-        viewTotaluser = findViewById(R.id.totalusers);
-        currentDateTime = findViewById(R.id.currentDateAndTime);
-
+        binding = AdminHomeActivityBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        currentDateTime.setText(getCurrentDate());
+        binding.currentDateAndTimeinAdminPage.setText(getCurrentDate());
 
 
-        viewTotaluser.setOnClickListener(view ->
+        binding.totalusers.setOnClickListener(view ->
         {
             startActivity(new Intent(AdminHomeScreen.this , AllusersActivity.class));
         });
 
+
+        binding.viewLastSummaryMorining.setOnClickListener(view -> {
+            startActivity(new Intent(AdminHomeScreen.this, LastSummaryForMorning.class));
+        });
 
 
     }
@@ -70,6 +71,12 @@ TextView currentDateTime;
         if(id == R.id.updateAdminsProfile)
         {
             startActivity(new Intent(AdminHomeScreen.this, updateAdminProfile.class));
+            return true;
+        } else if(id==R.id.logoutasAdmin)
+        {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(AdminHomeScreen.this, loginActivity.class));
+            finish();
             return true;
         }
 

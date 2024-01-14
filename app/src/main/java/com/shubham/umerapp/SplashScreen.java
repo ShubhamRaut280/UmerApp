@@ -30,6 +30,10 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 Intent intent = new Intent(SplashScreen.this, loginAcitvity.class);
                 startActivity(intent);
+                overridePendingTransition(
+                        R.anim.animate_slide_up_enter,
+                        R.anim.animate_slide_up_exit
+                );
                 finish();
             }
         }, 2700);

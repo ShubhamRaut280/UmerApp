@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#067BD6"
-    tools:context=".SplashScreen">
+    tools:context=".Utils.SplashScreen">
 
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="wrap_content"

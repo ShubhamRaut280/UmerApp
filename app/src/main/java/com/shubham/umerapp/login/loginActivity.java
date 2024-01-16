@@ -28,7 +28,7 @@ import com.shubham.umerapp.Admin.AdminLoginPage;
 import com.shubham.umerapp.User.userHomeAcitvity;
 import com.shubham.umerapp.R;
 
-public class loginAcitvity extends AppCompatActivity {
+public class loginActivity extends AppCompatActivity {
 
     boolean isAdmin = false;
 
@@ -75,7 +75,7 @@ public class loginAcitvity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 isAdmin = true;
-                Intent intent = new Intent(loginAcitvity.this, AdminLoginPage.class);
+                Intent intent = new Intent(loginActivity.this, AdminLoginPage.class);
                 intent.putExtra("isAdmin", isAdmin);
                 startActivity(intent);
             }
@@ -105,11 +105,11 @@ public class loginAcitvity extends AppCompatActivity {
 
             // Assume you have a variable isAdmin indicating the user's role
             if (!isAdmin) {
-                Intent intent = new Intent(loginAcitvity.this, userHomeAcitvity.class);
+                Intent intent = new Intent(loginActivity.this, userHomeAcitvity.class);
                 startActivity(intent);
                 finish();
             } else {
-                startActivity(new Intent(loginAcitvity.this, AdminHomeScreen.class));
+                startActivity(new Intent(loginActivity.this, AdminHomeScreen.class));
                 finish();
             }
         }
@@ -153,14 +153,14 @@ public class loginAcitvity extends AppCompatActivity {
                         if (user != null) {
                             Log.d(TAG, "onComplete: username is : "+ user.getDisplayName()+ " email for user is : "+ user.getEmail()
                                     +" user : "+ user.getPhoneNumber());
-                            Toast.makeText(loginAcitvity.this, "sign in successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(loginActivity.this, "sign in successful", Toast.LENGTH_SHORT).show();
                             // Update UI
-                            Intent intent = new Intent(loginAcitvity.this, userHomeAcitvity.class);
+                            Intent intent = new Intent(loginActivity.this, userHomeAcitvity.class);
                             startActivity(intent);
 
                         }
                     } else {
-                        Toast.makeText(loginAcitvity.this, "Authentication failed.",
+                        Toast.makeText(loginActivity.this, "Authentication failed.",
                                 Toast.LENGTH_SHORT).show();
                     }
                 });

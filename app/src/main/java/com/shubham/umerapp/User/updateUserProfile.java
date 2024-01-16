@@ -1,7 +1,7 @@
 package com.shubham.umerapp.User;
 
 import static android.content.ContentValues.TAG;
-
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -32,7 +32,7 @@ public class updateUserProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         binding = ActivityUpdateUserProfileBinding.inflate(getLayoutInflater());
+        binding = ActivityUpdateUserProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         Toolbar toolbar = binding.toolbar;
@@ -144,11 +144,18 @@ public class updateUserProfile extends AppCompatActivity {
             startActivity(new Intent(updateUserProfile.this, userHomeAcitvity.class));
             finish();
         });
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Back is pressed... Finishing the activity
+                startActivity(new Intent(updateUserProfile.this, userHomeAcitvity.class));
+                finish();
+            }
+        });
+
     }
-
-
-
-    private void showDetailsandHideProgressBar( boolean arg)
+    private void showDetailsandHideProgressBar(boolean arg)
     {
         if (arg)
         {

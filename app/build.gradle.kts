@@ -48,10 +48,12 @@ dependencies {
     implementation ("com.google.firebase:firebase-appcheck-debug:16.0.0")
     implementation ("com.google.firebase:firebase-appcheck-playintegrity")
     implementation("com.google.android.gms:play-services-auth:20.7.0")
+    implementation("androidx.databinding:databinding-runtime:8.2.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.19")
     implementation("commons-net:commons-net:3.6")
+
 
 }

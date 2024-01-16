@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".User.Fragments.fragment2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip"
+                android:layout_width="386dp"
+                android:layout_height="405dp"
+                android:layout_marginTop="32dp"
+                app:chipSurfaceColor="#DDBAEFB6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.48"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtmonth"
+                android:layout_width="186dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="99dp"
+                android:layout_marginEnd="97dp"
+                android:ellipsize="start"
+                android:fadingEdge="vertical"
+                android:fontFamily="sans-serif-medium"
+                android:foregroundGravity="bottom"
+                android:gravity="center"
+                android:requiresFadingEdge="none"
+                android:text="Fetching Month..."
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:autoSizeTextType="none"
+                app:layout_constraintBottom_toBottomOf="@+id/chip"
+                app:layout_constraintEnd_toEndOf="@+id/chip"
+                app:layout_constraintStart_toStartOf="@+id/chip"
+                app:layout_constraintTop_toTopOf="@+id/chip"
+                app:layout_constraintVertical_bias="0.127" />
+
+            <TextView
+                android:id="@+id/txtday"
+                android:layout_width="320dp"
+                android:layout_height="303dp"
+                android:gravity="center"
+                android:text="Fetching Date..."
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/chip"
+                app:layout_constraintEnd_toEndOf="@+id/chip"
+                app:layout_constraintHorizontal_bias="0.484"
+                app:layout_constraintStart_toStartOf="@+id/chip"
+                app:layout_constraintTop_toBottomOf="@+id/txtmonth"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip2"
+                android:layout_width="299dp"
+                android:layout_height="116dp"
+                app:chipSurfaceColor="#DDBAEFB6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chip" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip3"
+                android:layout_width="299dp"
+                android:layout_height="116dp"
+                app:chipSurfaceColor="#DDBAEFB6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.504"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chip2"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="589dp" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="141dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="48dp"
+                android:gravity="center"
+                android:text="Morning supply: "
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/chip2"
+                app:layout_constraintStart_toStartOf="@+id/chip2"
+                app:layout_constraintTop_toTopOf="@+id/chip2"
+                app:layout_constraintVertical_bias="0.466" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="141dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="44dp"
+                android:gravity="center"
+                android:text="Evening supply: "
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/chip3"
+                app:layout_constraintStart_toStartOf="@+id/chip3"
+                app:layout_constraintTop_toTopOf="@+id/guideline4"
+                app:layout_constraintVertical_bias="0.025" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>

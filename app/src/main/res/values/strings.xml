@@ -12,4 +12,7 @@
     <string name="admin_s_dashboard">Admin\'s Dashboard</string>
     <string name="view_last_summary">View last summary</string>
     <string name="user_dashboard">User Dashboard</string>
+    <string name="notification">Notifications</string>
+    <string name="today_status">Today\'s Status</string>
+    <string name="monthly_overview">Monthly Overview</string>
 </resources>

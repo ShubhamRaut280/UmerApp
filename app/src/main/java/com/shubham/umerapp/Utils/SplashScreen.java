@@ -1,25 +1,19 @@
-package com.shubham.umerapp;
+package com.shubham.umerapp.Utils;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Window;
-import android.view.WindowManager;
 
-import com.shubham.umerapp.login.loginAcitvity;
-
-import java.util.Objects;
+import com.shubham.umerapp.R;
+import com.shubham.umerapp.login.loginActivity;
 
 public class SplashScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash_screen);
 
 
@@ -28,7 +22,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreen.this, loginAcitvity.class);
+                Intent intent = new Intent(SplashScreen.this, loginActivity.class);
                 startActivity(intent);
                 overridePendingTransition(
                         R.anim.animate_slide_up_enter,

@@ -16,8 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
-
         <TextView
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
@@ -28,48 +26,45 @@
             android:textSize="20sp" />
 
     </androidx.appcompat.widget.Toolbar>
-    <RelativeLayout
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:background="@color/main2"
+        app:tabTextColor="@color/white"
 
-        <TextView
-            android:id="@+id/hii"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/loraitalic"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:text="Hii"
-            android:textColor="@color/main"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+        app:layout_constraintVertical_bias="0.0"
+        android:textSize="15sp" >
 
-        <Button
-            android:id="@+id/sendFeedback"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="100dp"
-            android:text="send feedback" />
-
-        <ProgressBar
-            android:id="@+id/feedbackProgressbar"
-            style="?android:attr/progressBarStyle"
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
-            android:visibility="gone"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="277dp"
-            android:layout_marginEnd="184dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-    </RelativeLayout>
+            android:text="@string/notification"
+            android:textSize="15sp" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/today_status"
+            android:textSize="15sp" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/monthly_overview"
+            android:textSize="15sp" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="624dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab1"
+        app:layout_constraintBaseline_toBaselineOf="parent"
+        android:scrollbars="vertical"
+        tools:layout_editor_absoluteX="0dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

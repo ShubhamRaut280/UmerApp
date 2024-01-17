@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     android:orientation="vertical"
     android:layout_gravity="center"
     tools:context=".User.Fragments.fragment1">
-
 
         <TextView
             android:id="@+id/hii"
@@ -21,7 +21,7 @@
             android:fontFamily="@font/loraitalic"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:text="Hiui"
+            android:text="Hii"
             android:textColor="@color/main"
             android:textSize="25sp"
             android:textStyle="bold" />

@@ -29,6 +29,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.shubham.umerapp.Admin.AdminHomeScreen;
+import com.shubham.umerapp.Admin.updateAdminProfile;
 import com.shubham.umerapp.R;
 import com.shubham.umerapp.User.Adapters.VPAdapter;
 import com.shubham.umerapp.User.Fragments.fragment1;
@@ -36,6 +38,7 @@ import com.shubham.umerapp.User.Fragments.fragment2;
 import com.shubham.umerapp.User.Fragments.fragment3;
 import com.shubham.umerapp.databinding.UserHomeActivityBinding;
 import com.shubham.umerapp.helperFunctions;
+import com.shubham.umerapp.login.loginActivity;
 
 public class userHomeAcitvity extends AppCompatActivity {
     String documentId = new String();
@@ -156,6 +159,35 @@ public class userHomeAcitvity extends AppCompatActivity {
 //        });
 
 
+
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.user_homepage, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+        if(id == R.id.gotoUpdateUserprofile)
+        {
+            startActivity(new Intent(userHomeAcitvity.this, updateUserProfile.class));
+            finish();
+            return true;
+
+        } else if(id==R.id.logoutasUser)
+        {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(userHomeAcitvity.this, loginActivity.class));
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

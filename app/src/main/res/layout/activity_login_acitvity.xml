@@ -7,72 +7,82 @@
     tools:context=".login.loginActivity">
 
     <RelativeLayout
+        android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#F4F4F4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#067CD6">
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/gif"
+                android:layout_width="338dp"
+                android:layout_height="224dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/milk" />
+
+        </RelativeLayout>
 
 
         <TextView
             android:id="@+id/appname"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="100dp"
             android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:fontFamily="@font/loraitalic"
             android:text="Welcome !! Continue to app"
             android:textAlignment="center"
-            android:textColor="@color/main2"
+            android:textColor="#333333"
             android:textSize="28sp"
             android:textStyle="bold" />
-
-
 
         <ImageView
             android:id="@+id/googleLogin"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginTop="50dp"
-            android:clickable="true"
-            android:layout_centerHorizontal="true"
             android:layout_below="@id/appname"
-                android:src="@drawable/google"
-                />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:src="@drawable/google" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/GotoAdminLogin"
-            android:layout_below="@id/googleLogin"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginEnd="60dp"
-            android:elevation="10dp"
-            app:cardCornerRadius="20dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/googleLogin"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="40dp"
             android:clickable="true"
+            android:elevation="10dp"
             android:focusable="true"
-            android:backgroundTint="@color/main2"
-            android:layout_marginTop="100dp" >
+            app:cardBackgroundColor="#067CD6"
+            app:cardCornerRadius="20dp">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Login as a Admin"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/lora"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:padding="5dp"
+                android:padding="16dp"
+                android:text="Login as an Admin"
                 android:textAlignment="center"
-                android:layout_gravity="center"
-
-                />
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </androidx.cardview.widget.CardView>
-
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

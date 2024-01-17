@@ -117,9 +117,7 @@ public class fragment1 extends Fragment {
                                                         Log.d(MotionEffect.TAG, "Feedback sent successfully!");
                                                         Toast.makeText(getContext(), "Feedback sent successfully!", Toast.LENGTH_SHORT).show();
                                                         pg.setVisibility(View.GONE);
-
-                                                    })
-                                                    .addOnFailureListener(e -> {
+                                                    }).addOnFailureListener(e -> {
                                                         // If the document doesn't exist, create a new one
                                                         db.collection("morningSession").document(documentId).set(feedback)
                                                                 .addOnSuccessListener(aVoid1 -> {

@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".Admin.AdminLoginPage">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#067CD6">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gif"
+            android:layout_width="338dp"
+            android:layout_height="224dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/milk" />
+
+    </RelativeLayout>
     <androidx.cardview.widget.CardView
         android:id="@+id/AdminLogin"
         android:layout_width="match_parent"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,9 +8,9 @@
     tools:context=".Admin.updateAdminProfile">
 
     <ProgressBar
+        android:id="@+id/progressBarInAdminProfile"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:id="@+id/progress_bar_inadminProfile"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,12 +26,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-<ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:id="@+id/backtodashboardadmin"
-    android:src="@drawable/back"
-    />
+        <ImageView
+            android:id="@+id/backtodashboardadmin"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/back"
+            />
+
         <TextView
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
@@ -61,7 +63,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
             android:src="@drawable/user"
-
             />
 
         <TextView
@@ -103,7 +104,6 @@
             android:text="Phone Number"
             android:textColor="@color/main"
             android:textSize="20sp"
-
             />
 
         <EditText
@@ -118,8 +118,6 @@
             android:inputType="phone"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
-
-
             />
 
         <TextView
@@ -134,7 +132,6 @@
             android:text="Email"
             android:textColor="@color/main"
             android:textSize="20sp"
-
             />
 
         <TextView
@@ -164,7 +161,6 @@
             android:textAllCaps="false"
             android:textSize="15sp"
             android:textStyle="bold" />
-
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

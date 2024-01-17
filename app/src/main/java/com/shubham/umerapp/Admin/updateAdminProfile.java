@@ -2,7 +2,6 @@ package com.shubham.umerapp.Admin;
 
 import static android.content.ContentValues.TAG;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
@@ -17,7 +16,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -49,7 +47,7 @@ public class updateAdminProfile extends AppCompatActivity {
 
 
         relativeLayout = findViewById(R.id.relativeLayout);
-        progressBar = findViewById(R.id.progress_bar_inadminProfile);
+        progressBar = findViewById(R.id.progressBarInAdminProfile);
         username = findViewById(R.id.adminUsername);
         back = findViewById(R.id.backtodashboardadmin);
         phonenumber = findViewById(R.id.adminPhoneNumber);

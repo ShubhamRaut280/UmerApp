@@ -19,7 +19,7 @@
             android:name=".Admin.LastSummaryForEvening"
             android:exported="false" />
         <activity
-            android:name=".Admin.LastSummaryForMorning"
+            android:name=".Admin.LastSummary"
             android:exported="false" />
         <activity
             android:name=".User.updateUserProfile"

@@ -1,43 +1,25 @@
 package com.shubham.umerapp.User;
 
-import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.helper.widget.MotionEffect;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.shubham.umerapp.Admin.AdminHomeScreen;
-import com.shubham.umerapp.Admin.updateAdminProfile;
 import com.shubham.umerapp.R;
 import com.shubham.umerapp.User.Adapters.VPAdapter;
 import com.shubham.umerapp.User.Fragments.fragment1;
 import com.shubham.umerapp.User.Fragments.fragment2;
 import com.shubham.umerapp.User.Fragments.fragment3;
 import com.shubham.umerapp.databinding.UserHomeActivityBinding;
-import com.shubham.umerapp.helperFunctions;
 import com.shubham.umerapp.login.loginActivity;
 
 public class userHomeAcitvity extends AppCompatActivity {

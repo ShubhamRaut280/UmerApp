@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.shubham.umerapp.R;
-import com.shubham.umerapp.helperFunctions;
+import com.shubham.umerapp.Utils.helperFunctions;
 
 public class fragment2 extends Fragment {
     TextView day,month;

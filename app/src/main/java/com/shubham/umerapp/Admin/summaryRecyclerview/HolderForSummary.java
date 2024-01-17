@@ -12,13 +12,14 @@ import com.shubham.umerapp.R;
 
 public class HolderForSummary extends RecyclerView.ViewHolder {
     TextView username, phonenumber;
-    ImageView status;
+    ImageView mstatus, estatus;
 
     public HolderForSummary(@NonNull View itemView) {
         super(itemView);
         username = itemView.findViewById(R.id.name_of_user);
         phonenumber = itemView.findViewById(R.id.phone_of_user);
-        status = itemView.findViewById(R.id.status);
+        mstatus = itemView.findViewById(R.id.m_status);
+        estatus = itemView.findViewById(R.id.e_status);
 
     }
 }

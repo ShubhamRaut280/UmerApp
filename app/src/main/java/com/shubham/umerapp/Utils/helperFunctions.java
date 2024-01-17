@@ -8,13 +8,12 @@ import android.widget.Toast;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.shubham.umerapp.Admin.LastSummaryForMorning;
 import com.shubham.umerapp.Models.SessionInfo;
 import com.shubham.umerapp.Models.userSummary;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Map;
@@ -26,137 +25,96 @@ public class helperFunctions {
         String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
         return date;
     }
+     public String getCurrentTime(){
+        Date time = Calendar.getInstance().getTime();
+        return time.toString();
+    }
 
 
     public int getIndexForSpecificDateforMorning(userSummary user, String date)
     {
-        int index = -1;
-        Log.d(TAG, "getIndexForSpecificDateforMorning: got into hellper size of morning : "+ user.getMorning().size());
         for(int i = 0; i < user.getMorning().size(); i++)
         {
-            Log.d(TAG, "getIndexForSpecificDateforMorning: user"+user.getName()+" date "+ user.getMorning().get(i).getDate()+ " my date "+ date+" are they equal : "+ user.getMorning().get(i).getDate().equals(date));
             if(user.getMorning().get(i).getDate().equals(date))
-                index = i;
-            break;
+             return i;
+
         }
 
-        return index;
+        return -1;
     }
     public int getIndexForSpecificDateforEvening(userSummary user, String date)
     {
-        int index = -1;
         for(int i = 0; i < user.getEvening().size(); i++)
         {
-            if(user.getEvening().get(i).getDate() == date)
-                index = i;
-            break;
+            if(user.getEvening().get(i).getDate().equals(date))
+            return  i;
         }
 
-        return index;
+        return -1;
     }
 
+    public interface SummaryCallback {
+        void onSummaryReceived(ArrayList<userSummary> userSummaryList);
+    }
 
-    public static void getSummary(FirebaseFirestore db, Context context, LastSummaryForMorning.SummaryCallback callback)
-    {
+    public static void getSummary(FirebaseFirestore db, Context context, SummaryCallback callback) {
         ArrayList<userSummary> userSummaryList = new ArrayList<>();
 
         db.collection("users").get().addOnCompleteListener(task -> {
-            if(task.isSuccessful())
-            {
-                if (!task.getResult().isEmpty())
-                {
-                    for ( DocumentSnapshot document:task.getResult().getDocuments() ) {
-                        userSummary usr = new userSummary();
-                        usr.setDocumentId(document.getId());
-                        usr.setName(document.getString("Name"));
-                        usr.setEmail(document.getString("Email"));
-                        usr.setPhone(document.getString("Phone Number"));
-
-                        Log.d(TAG, "getSummary: user s: "+ document.getString("Name")+document.getString("Email")+ " "+ document.getId());
-
-                        ArrayList<SessionInfo> sessionInfoListMorning = new ArrayList<>();
-                        ArrayList<SessionInfo> sessionInfoListEvening = new ArrayList<>();
-
-
-                        // got details now getting users responses
-
-                        // for morning
-                        db.collection("morningSession").document(document.getId()).get().addOnSuccessListener(documentSnapshot -> {
-                            if (documentSnapshot.exists()) {
-                                Map<String, Object> data = documentSnapshot.getData();
-
-                                if (data != null) {
-
-                                    for (Map.Entry<String, Object> entry : data.entrySet()) {
-                                        String datefromfb = entry.getKey();
-                                        boolean value = (boolean) entry.getValue();
-
-                                        SessionInfo myObject = new SessionInfo(datefromfb, value);
-                                        sessionInfoListMorning.add(myObject);
-                                    }
-
-                                }
-                            }
-                        }).addOnFailureListener(e -> {
-                            Toast.makeText(context, "Something went wrong!!"+e.getMessage(), Toast.LENGTH_SHORT).show();
-
-                        });
-                        usr.setMorning(sessionInfoListMorning);
-
-
-                        // for morning
-                        db.collection("eveningSession").document(document.getId()).get().addOnSuccessListener(documentSnapshot -> {
-                            if (documentSnapshot.exists()) {
-                                Map<String, Object> data = documentSnapshot.getData();
-
-                                if (data != null) {
-
-                                    for (Map.Entry<String, Object> entry : data.entrySet()) {
-                                        String datefromfb = entry.getKey();
-                                        boolean value = (boolean) entry.getValue();
-
-                                        SessionInfo myObject = new SessionInfo(datefromfb, value);
-                                        sessionInfoListEvening.add(myObject);
-                                    }
-
-                                }
-                            }
-                        }).addOnFailureListener(e -> {
-                            Toast.makeText(context, "Something went wrong!!"+e.getMessage(), Toast.LENGTH_SHORT).show();
-
-                        });
-                        usr.setEvening(sessionInfoListEvening);
-
-                        // Add the populated userSummary to the list
+            if (task.isSuccessful()) {
+                if (!task.getResult().isEmpty()) {
+                    for (DocumentSnapshot document : task.getResult().getDocuments()) {
+                        userSummary usr = createSummaryFromDocument(document, db);
                         userSummaryList.add(usr);
-
-                        Log.d(TAG, "getSummary: size of list from helper : "+ userSummaryList.size());
                     }
                 }
 
-
-
-                for (userSummary user :
-                        userSummaryList) {
-                    Log.d(TAG, "onCreate: form helper :size of morning list :  "+
-                            user.getMorning().size());}
-
                 callback.onSummaryReceived(userSummaryList);
-
+            } else {
+                Toast.makeText(context, "Something went wrong: " + task.getException(), Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "Error fetching user data: ", task.getException());
             }
-
-
-
-        }).addOnFailureListener(e->{
-            Toast.makeText(context, "Something went wrong !!"+e.getMessage(), Toast.LENGTH_SHORT).show();
-            Log.d(TAG, "getSummaryforMorning: Error in getSummaryMorning :"+ e.getMessage());
         });
-
-        Log.d(TAG, "getSummary: size of list from helper at return  : "+ userSummaryList.size());
-
-
-//        return userSummaryList;
     }
 
+    private static userSummary createSummaryFromDocument(DocumentSnapshot document, FirebaseFirestore db) {
+        userSummary usr = new userSummary();
+        usr.setDocumentId(document.getId());
+        usr.setName(document.getString("Name"));
+        usr.setEmail(document.getString("Email"));
+        usr.setPhone(document.getString("Phone Number"));
 
+        ArrayList<SessionInfo> sessionInfoListMorning = getSessionInfoList(document.getId(), "morningSession", db);
+        usr.setMorning(sessionInfoListMorning);
+
+        ArrayList<SessionInfo> sessionInfoListEvening = getSessionInfoList(document.getId(), "eveningSession", db);
+        usr.setEvening(sessionInfoListEvening);
+
+        return usr;
+    }
+
+    private static ArrayList<SessionInfo> getSessionInfoList(String userId, String collectionName, FirebaseFirestore db) {
+        ArrayList<SessionInfo> sessionInfoList = new ArrayList<>();
+
+        db.collection(collectionName).document(userId).get().addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot.exists()) {
+                Map<String, Object> data = documentSnapshot.getData();
+
+                if (data != null) {
+                    for (Map.Entry<String, Object> entry : data.entrySet()) {
+                        String dateFromFb = entry.getKey();
+                        boolean value = (boolean) entry.getValue();
+                        SessionInfo sessionInfo = new SessionInfo(dateFromFb, value);
+                        sessionInfoList.add(sessionInfo);
+                    }
+                }
+            }
+        }).addOnFailureListener(e -> {
+            Log.e(TAG, "Error fetching session data: " + e.getMessage());
+        });
+
+        return sessionInfoList;
+    }
 }
+
+

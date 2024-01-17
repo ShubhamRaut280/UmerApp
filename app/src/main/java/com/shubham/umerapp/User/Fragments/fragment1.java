@@ -24,7 +24,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.shubham.umerapp.R;
-import com.shubham.umerapp.User.userDetails;
 import com.shubham.umerapp.databinding.FragmentFragment1Binding;
 import com.shubham.umerapp.databinding.UserHomeActivityBinding;
 import com.shubham.umerapp.helperFunctions;
@@ -37,7 +36,6 @@ import java.util.Objects;
 
 public class fragment1 extends Fragment {
     String documentId = new String();
-    userDetails userdetails;
     FirebaseFirestore db;
     FirebaseAuth auth;
     @Override
@@ -170,7 +168,7 @@ public class fragment1 extends Fragment {
                                             // If the document doesn't exist, create a new one
                                             db.collection("morningSession").document(documentId).set(feedback)
                                                     .addOnSuccessListener(aVoid1 -> {
-                                                        binding.feedbackProgressbar.setVisibility(View.GONE);
+                                                        Objects.requireNonNull(binding.feedbackProgressbar).setVisibility(View.GONE);
                                                         Toast.makeText(getContext(), "Feedback added successfully!", Toast.LENGTH_SHORT).show();
                                                         Log.d(MotionEffect.TAG, "Feedback added successfully!");
                                                     })

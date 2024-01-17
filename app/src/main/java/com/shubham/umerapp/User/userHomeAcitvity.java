@@ -40,7 +40,7 @@ import com.shubham.umerapp.helperFunctions;
 public class userHomeAcitvity extends AppCompatActivity {
     String documentId = new String();
     TabLayout tabLayout;
-    userDetails userdetails;
+
     FirebaseFirestore db;
     FirebaseAuth auth;
 

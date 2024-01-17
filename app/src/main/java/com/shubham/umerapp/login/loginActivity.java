@@ -77,7 +77,12 @@ public class loginActivity extends AppCompatActivity {
                 isAdmin = true;
                 Intent intent = new Intent(loginActivity.this, AdminLoginPage.class);
                 intent.putExtra("isAdmin", isAdmin);
+
                 startActivity(intent);
+                overridePendingTransition(
+                        R.anim.animate_slide_left_enter,
+                        R.anim.animate_slide_left_exit
+                );
             }
 
 
@@ -136,6 +141,7 @@ public class loginActivity extends AppCompatActivity {
             } catch (ApiException e) {
                 int statusCode = e.getStatusCode();
                 Toast.makeText(this, "Error code: " + statusCode+" error : "+ e.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onActivityResult: SUYOG"+e.getStatus());
             }
 
         }

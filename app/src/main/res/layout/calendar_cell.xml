@@ -16,7 +16,7 @@
         tools:layout_editor_absoluteY="3dp" />
 
     <ImageView
-        android:id="@+id/eDone"
+        android:id="@+id/oDone"
         android:layout_width="23dp"
         android:layout_height="28dp"
         app:srcCompat="@drawable/ic_onedone_red"
@@ -24,7 +24,7 @@
         tools:layout_editor_absoluteY="3dp" />
 
     <ImageView
-        android:id="@+id/mDone"
+        android:id="@+id/aDone"
         android:layout_width="23dp"
         android:layout_height="28dp"
         app:srcCompat="@drawable/ic_done_green"

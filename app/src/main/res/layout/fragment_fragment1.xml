@@ -27,7 +27,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/yes"
+            android:id="@+id/myes"
             android:layout_width="162dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/hii"
@@ -36,19 +36,19 @@
             android:layout_marginTop="94dp"
             android:layout_marginEnd="117dp"
             android:layout_marginBottom="100dp"
-            android:text="Yes" />
+            android:text="Morning yes" />
 
         <Button
-            android:id="@+id/no"
+            android:id="@+id/mno"
             android:layout_width="162dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/hii"
-            android:layout_alignParentEnd="true"
+            android:layout_alignEnd="@+id/myes"
             android:layout_marginStart="100dp"
-            android:layout_marginTop="153dp"
-            android:layout_marginEnd="115dp"
+            android:layout_marginTop="163dp"
+            android:layout_marginEnd="0dp"
             android:layout_marginBottom="100dp"
-            android:text="No" />
+            android:text="Morning No" />
 
         <ProgressBar
             android:id="@+id/feedbackProgressbar"
@@ -62,5 +62,25 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/eyes"
+            android:layout_width="167dp"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/mno"
+            android:layout_alignBottom="@+id/hii"
+            android:layout_marginEnd="-4dp"
+            android:layout_marginBottom="-367dp"
+            android:text="Evening Yes" />
+
+        <Button
+            android:id="@+id/eno"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/hii"
+            android:layout_alignEnd="@+id/eyes"
+            android:layout_marginTop="392dp"
+            android:layout_marginEnd="0dp"
+            android:text="Evening No" />
 
 </RelativeLayout>

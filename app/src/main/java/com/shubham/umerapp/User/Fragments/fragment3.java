@@ -29,11 +29,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class fragment3 extends Fragment implements CalendarAdapter.OnItemListener {
 
     public TextView monthYearText;
     public RecyclerView calendarRecyclerView;
-    public LocalDate selectedDate;
+    public LocalDate selectedDate = LocalDate.now();;
     CardView previousMonth, nextMonth;
     String s_year, s_month, s_day;
 
@@ -62,26 +63,23 @@ public class fragment3 extends Fragment implements CalendarAdapter.OnItemListene
             }
         });
 
-        selectedDate = LocalDate.now();
-
-        Toast.makeText(getContext(), "LOOOl: "+selectedDate, Toast.LENGTH_LONG).show();
-        Log.e("LMAOOO: ", selectedDate.toString());
+        //selectedDate = LocalDate.now();
         setMonthView();
         return view;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private void setMonthView()
+    public void setMonthView()
     {
+
         monthYearText.setText(monthYearFromDate(selectedDate));
+        mYear();
         ArrayList<String> daysInMonth = daysInMonthArray(selectedDate);
 
         CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, this);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 7);
         calendarRecyclerView.setLayoutManager(layoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
-
-        String currDate;
 
 
     }
@@ -117,7 +115,11 @@ public class fragment3 extends Fragment implements CalendarAdapter.OnItemListene
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM yyyy");
         return date.format(formatter);
     }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public String mYear(){
 
+        return monthYearFromDate(selectedDate);
+    }
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void previousMonthAction(View view)
     {

@@ -11,9 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.shubham.umerapp.databinding.AdminHomeActivityBinding;
 import com.shubham.umerapp.login.loginActivity;
 import com.shubham.umerapp.R;
-import com.shubham.umerapp.databinding.AdminHomeActivityBinding;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -37,16 +38,15 @@ TextView currentDateTime;
         binding.currentDateAndTimeinAdminPage.setText(getCurrentDate());
 
 
-        binding.totalusers.setOnClickListener(view ->
+        binding.AllUsers.setOnClickListener(view ->
         {
             startActivity(new Intent(AdminHomeScreen.this , AllusersActivity.class));
         });
 
 
-        binding.viewLastSummaryMorining.setOnClickListener(view -> {
-            startActivity(new Intent(AdminHomeScreen.this, LastSummaryForMorning.class));
+        binding.viewLastSummary.setOnClickListener(view -> {
+            startActivity(new Intent(AdminHomeScreen.this, LastSummary.class));
         });
-
 
     }
 

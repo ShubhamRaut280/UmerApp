@@ -3,12 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="70dp"
     tools:ignore="TextSizeCheck">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginEnd="100dp"
+        android:orientation="horizontal"
+        android:id="@+id/contents"
 
         >
 
@@ -16,68 +19,75 @@
             android:id="@+id/userProfileImage"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="5dp"
             android:padding="10dp"
             android:src="@drawable/user"
 
             />
 
-        <TextView
-            android:id="@+id/name_of_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_toStartOf="@id/status"
-            android:layout_toEndOf="@id/userProfileImage"
-            android:fontFamily="@font/popins"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:text="Users Name"
-            android:textColor="@color/main"
-            android:textSize="16sp"
-            tools:ignore="HardcodedText,TextContrastCheck" />
-
-        <TextView
-            android:id="@+id/phone_of_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/name_of_user"
-            android:layout_marginStart="5dp"
-            android:layout_toStartOf="@id/status"
-            android:layout_toEndOf="@id/userProfileImage"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:text="9689438141"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-
-            />
-
-        <ImageView
-            android:id="@+id/status"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="10dp"
-            android:padding="5dp"
-            app:srcCompat="@drawable/received" />
-
-        <View
-            android:id="@+id/divider"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/userProfileImage"
-            android:background="@color/main"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name_of_user"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/popins"
+                android:text="Users Name"
+                android:textColor="@color/main"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText,TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/phone_of_user"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_below="@id/name_of_user"
+                android:layout_marginStart="5dp"
+                android:text="9689438141"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+
+                />
+        </RelativeLayout>
 
 
-    </RelativeLayout>
 
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/m_status"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/e_status"
+        app:layout_constraintStart_toEndOf="@+id/contents"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/notreceived" />
+
+    <ImageView
+        android:id="@+id/e_status"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="5dp"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/received" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

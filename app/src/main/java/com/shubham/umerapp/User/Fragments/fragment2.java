@@ -27,7 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.shubham.umerapp.R;
-import com.shubham.umerapp.helperFunctions;
+import com.shubham.umerapp.Utils.helperFunctions;
 
 import java.time.LocalDate;
 

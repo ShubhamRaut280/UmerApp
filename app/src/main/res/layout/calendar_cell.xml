@@ -13,7 +13,8 @@
         android:layout_height="28dp"
         app:srcCompat="@drawable/ic_notdone_red"
         tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="3dp" />
+        tools:layout_editor_absoluteY="3dp"
+        android:visibility="gone"/>
 
     <ImageView
         android:id="@+id/oDone"
@@ -21,7 +22,8 @@
         android:layout_height="28dp"
         app:srcCompat="@drawable/ic_onedone_red"
         tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="3dp" />
+        tools:layout_editor_absoluteY="3dp"
+        android:visibility="gone"/>
 
     <ImageView
         android:id="@+id/aDone"
@@ -29,7 +31,8 @@
         android:layout_height="28dp"
         app:srcCompat="@drawable/ic_done_green"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="3dp" />
+        tools:layout_editor_absoluteY="3dp"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/cellDayText"

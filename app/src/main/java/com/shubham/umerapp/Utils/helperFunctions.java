@@ -93,7 +93,7 @@ public class helperFunctions {
         return usr;
     }
 
-    private static ArrayList<SessionInfo> getSessionInfoList(String userId, String collectionName, FirebaseFirestore db) {
+    public static ArrayList<SessionInfo> getSessionInfoList(String userId, String collectionName, FirebaseFirestore db) {
         ArrayList<SessionInfo> sessionInfoList = new ArrayList<>();
 
         db.collection(collectionName).document(userId).get().addOnSuccessListener(documentSnapshot -> {

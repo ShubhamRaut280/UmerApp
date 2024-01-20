@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,10 +30,11 @@ import java.util.ArrayList;
 public class fragment3 extends Fragment implements CalendarAdapter.OnItemListener {
 
     public TextView monthYearText;
+
+    ImageView allDone, oneDone, notDone;
     public RecyclerView calendarRecyclerView;
     public LocalDate selectedDate = LocalDate.now();;
     CardView previousMonth, nextMonth;
-    String s_year, s_month, s_day;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -40,10 +42,16 @@ public class fragment3 extends Fragment implements CalendarAdapter.OnItemListene
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_fragment3, container, false);
 
+        View view1 = inflater.inflate(R.layout.calendar_cell, container, false);
+
         calendarRecyclerView = view.findViewById(R.id.calendarRecyclerView);
         monthYearText = view.findViewById(R.id.monthYearTV);
         previousMonth = view.findViewById(R.id.previous);
         nextMonth = view.findViewById(R.id.next);
+
+        allDone = view1.findViewById(R.id.aDone);
+        oneDone = view1.findViewById(R.id.oDone);
+        notDone = view1.findViewById(R.id.notDone);
 
         previousMonth.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,12 +75,11 @@ public class fragment3 extends Fragment implements CalendarAdapter.OnItemListene
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void setMonthView()
     {
-
+        String monthnYear = monthYearFromDate(selectedDate);
         monthYearText.setText(monthYearFromDate(selectedDate));
-        mYear();
         ArrayList<String> daysInMonth = daysInMonthArray(selectedDate);
 
-        CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, this);
+        CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, monthnYear,this);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 7);
         calendarRecyclerView.setLayoutManager(layoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
@@ -110,11 +117,6 @@ public class fragment3 extends Fragment implements CalendarAdapter.OnItemListene
     {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM yyyy");
         return date.format(formatter);
-    }
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public String mYear(){
-
-        return monthYearFromDate(selectedDate);
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void previousMonthAction(View view)

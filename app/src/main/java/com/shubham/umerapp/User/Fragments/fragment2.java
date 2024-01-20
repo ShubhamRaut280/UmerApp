@@ -93,7 +93,7 @@ public class fragment2 extends Fragment {
                                     }
                                     if (snapshot != null && snapshot.exists()) {
 
-                                        Log.e("Current data: " , snapshot.getData().toString());
+//                                        Log.e("Current data: " , snapshot.getData().toString());
                                         checkMorningSessionDocument(userId);
                                     } else {
 
@@ -134,7 +134,7 @@ public class fragment2 extends Fragment {
                                     }
                                     if (snapshot != null && snapshot.exists()) {
 
-                                        Log.e("Current data: " , snapshot.getData().toString());
+//                                        Log.e("Current data: " , snapshot.getData().toString());
                                         checkEveningSessionDocument(userId);
                                     } else {
 
@@ -180,7 +180,7 @@ public class fragment2 extends Fragment {
                                     morningStatus.setText("Morning Supply: Not Received");
                                     morningStatus.setTextColor(Color.RED);
                                 }
-                                Log.e("Doc : " , String.valueOf(booleanValue));
+//                                Log.e("Doc : " , String.valueOf(booleanValue));
 
                             }else{
                                 // Document doesn't exist
@@ -226,7 +226,7 @@ public class fragment2 extends Fragment {
                                     eveningStatus.setText("Evening Supply: Not Received");
                                     eveningStatus.setTextColor(Color.RED);
                                 }
-                                Log.e("Doc : " , String.valueOf(booleanValue));
+//                                Log.e("Doc : " , String.valueOf(booleanValue));
 
                             }else{
                                 // Document doesn't exist
